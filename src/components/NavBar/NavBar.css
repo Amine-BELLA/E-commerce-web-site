@@ -1,0 +1,12 @@
+.navbar a {
+    text-decoration: none ;
+    outline: none;
+    color:#fbd46d ;
+
+}
+.navbar {
+    background-color:  #222831 ;
+    font-family: 'Montserrat';
+    margin-bottom: 2rem;
+}
+
