@@ -1,0 +1,23 @@
+.filter-container {
+    margin-bottom: 2rem;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center ;
+}
+
+.filter-container select {
+    width: 30%;
+    outline: none;
+    text-decoration: none;
+    background-color: #f6f4e6;
+    border: 1px solid #fbd46d;
+    border-radius: 5px;
+
+}
+
+.filter-container p {
+    margin: 0;
+}
