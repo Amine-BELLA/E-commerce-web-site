@@ -1,8 +1,10 @@
 .products {
     width: 70%;
+    height: 100%;
+    padding: 0 2rem 1rem;
     display: grid;
-    grid-template-columns: repeat(3,30%);
-    grid-template-rows: repeat(2,50%);
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -14,7 +16,8 @@
 }
 
 .product-info img {
-    width: 100%;
+    width: 90%;
+    margin-bottom: 0.5rem;
 }
 
 .product-info p {
@@ -24,8 +27,8 @@
 
 .product-purchase {
     display: grid;
-    grid-template-columns: 30% 60%;
-    column-gap: 10%;
+    grid-template-columns: 30% 55%;
+    column-gap: 5%;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -38,4 +41,10 @@
 
 .product-purchase h6 {
     margin: 0;
+}
+
+/* hover effect */
+.product-purchase button:hover {
+    background-color: #f0eeef;
+    color:#fbd46d ;
 }

@@ -1,15 +1,14 @@
 import React from 'react'
-import data from '../../data.json';
 import './Product.css';
 
-function Product() {
+function Product(props) {
     return (
         <div className='products'>
             {
-                data.products.map(product => {
+                props.products.map(product => {
                     return (
                         <div className='product'>
-                            <div className='product-info' key={product._id}>
+                            <div className='product-info' key={product.id}>
                                 <img src={product.image} />
                                 <p>{product.title}</p>
                             </div>

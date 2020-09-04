@@ -1,19 +1,34 @@
 import React from 'react'
 import './Filter.css';
 
-function Filter() {
+function Filter(props) {
     return (
-            <div className='filter-container'>
-                <p>Products in cart</p>
-                <select>
-                    <option>Filter Products</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                    <option>XLL</option>
+        <div className='filter'>
+            <div className='filter-count'>
+                {props.count} Products
+            </div>
+
+            <div className='filter-product'>
+                Price Filter {` `}
+                <select value={props.priceFilter} onChange = {props.handleSort}>
+                    <option value='newest'>Newest</option>
+                    <option value='lowest'>Lowest</option>
+                    <option value='highest'>Highest</option>
                 </select>
             </div>
+
+            <div className='filter-size'>
+                Size Filter {` `}
+                <select value={props.sizeFilter} onChange = {props.handleSize}>
+                    <option value=''>All</option>
+                    <option value='S'>S</option>
+                    <option value='M'>M</option>
+                    <option value='L'>L</option>
+                    <option value='XL'>XL</option>
+                    <option value='XXL'>XXL</option>
+                </select>
+            </div>
+        </div>
     );
 }
 
