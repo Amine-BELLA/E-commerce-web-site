@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
+import './App.css';
 import data from './data.json';
 import Product from './components/Product/Product';
 import NavBar from './components/NavBar/NavBar';
 import Filter from './components/Filter/Filter';
+import SideBar from './components/SideBarTop/SideBarTop';
+
 
 function App() {
   const [state, setState] = useState({
     products: data.products,
     sizeFilter: '',
-    priceFilter: ''
+    priceFilter: '',
+    cartItems: [],
   });
 
   function handleSort(e) {
@@ -76,17 +80,49 @@ function App() {
     }
   }
 
+  function addToCart(product) {
+    const cartItems = state.cartItems.slice();
+    let alreadyExist = false;
+    cartItems.forEach(item => {
+      if (item.id === product.id) {
+        item.count += 1;
+        alreadyExist = true;
+      }
+    })
+    if (!alreadyExist) {
+      cartItems.push({ count: 1, ...product });
+    }
+    console.log(cartItems);
+    setState(previousState => {
+      return (
+        {
+          ...previousState,
+          cartItems: cartItems
+        }
+      );
+    });
+  }
+
   return (
     <div >
       <NavBar />
-      <Filter
-        count={state.products.length}
-        handleSort={handleSort}
-        handleSize={handleSize}
-        sizeFilter={state.sizeFilter}
-        priceFilter={state.priceFilter}
-      />
-      <Product products={state.products} />
+      <div className='content'>
+        <Filter
+          count={state.products.length}
+          handleSort={handleSort}
+          handleSize={handleSize}
+          sizeFilter={state.sizeFilter}
+          priceFilter={state.priceFilter}
+        />
+        <SideBar cartItems={state.cartItems} />
+
+      </div>
+      <div>
+        <Product
+          products={state.products}
+          addToCart={addToCart}
+        />
+      </div>
     </div>
   );
 }
