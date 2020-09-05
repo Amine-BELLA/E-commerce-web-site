@@ -1,0 +1,30 @@
+.offer {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 2%;
+    padding: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+i{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.offer-element {
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.offer-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+#our-products {
+    margin-bottom: 3rem;
+}
