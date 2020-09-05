@@ -8,6 +8,7 @@ import SideBar from './components/SideBarTop/SideBarTop';
 import SideBarTop from './components/SideBarTop/SideBarTop';
 import SideBarMiddle from './components/SideBarMiddle/SideBarMiddle';
 import CheckOutForm from './components/CheckOutForm/CheckOutForm';
+import LandingPage from './components/LandingPage/LandingPage';
 
 
 function App() {
@@ -135,6 +136,7 @@ function App() {
   return (
     <div >
       <NavBar />
+      <LandingPage />
       <div className='content-top'>
         <Filter
           count={state.products.length}
