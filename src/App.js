@@ -156,6 +156,7 @@ function App() {
             cartItems={state.cartItems}
             removeItem={removeItem}
             handleProceed={handleProceed}
+            addToCart={addToCart}
           />
           <CheckOutForm proceed={state.proceed} />
         </div>

@@ -1,3 +1,16 @@
+
+.product a {
+    color: #41444b;
+    text-decoration: none;
+    outline: none;
+}
+
+.product a:hover {
+    color: blueviolet;
+    text-decoration: none;
+    outline: none;
+}
+
 .products {
     width: 100%;
     height: 100%;
@@ -45,6 +58,41 @@
 
 /* hover effect */
 .product-purchase button:hover {
+    background-color: #f0eeef;
+    color:#222831 ;
+}
+
+.modal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container img {
+    width: 50%;
+    position: relative;
+    left: 10rem;
+}
+
+.modal-infos {
+    position: relative;
+    right: 5rem;
+    bottom: 5rem;
+}
+
+.modal-purchase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    top: 10rem;
+}
+
+.modal-purchase button {
+    background-color: #f9d56e;
+}
+
+.modal-purchase button:hover {
     background-color: #f0eeef;
     color:#222831 ;
 }
