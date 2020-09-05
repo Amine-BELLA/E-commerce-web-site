@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SideBarMiddle.css';
 
 
 function SideBarMiddle(props) {
+
     return (
         <div>
             <div>
@@ -29,7 +30,7 @@ function SideBarMiddle(props) {
                     props.cartItems.length !== 0 &&
                     <div className='proceed'>
                         <h5>{`Total: $${props.cartItems.reduce((total, item) => total + item.price * item.count, 0)}`}</h5>
-                        <button>Proceed</button>
+                        <button onClick={props.handleProceed}>Proceed</button>
                     </div>
                 }
             </div>

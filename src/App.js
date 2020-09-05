@@ -7,6 +7,7 @@ import Filter from './components/Filter/Filter';
 import SideBar from './components/SideBarTop/SideBarTop';
 import SideBarTop from './components/SideBarTop/SideBarTop';
 import SideBarMiddle from './components/SideBarMiddle/SideBarMiddle';
+import CheckOutForm from './components/CheckOutForm/CheckOutForm';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     sizeFilter: '',
     priceFilter: '',
     cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
+    proceed: false
   });
 
   function handleSort(e) {
@@ -119,6 +121,17 @@ function App() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems.filter(element => element.id !== item.id)));
   }
 
+  function handleProceed() {
+    setState(previousState => {
+      return (
+        {
+          ...previousState,
+          proceed: true
+        }
+      );
+    });
+  }
+
   return (
     <div >
       <NavBar />
@@ -138,10 +151,14 @@ function App() {
           products={state.products}
           addToCart={addToCart}
         />
-        <SideBarMiddle
-          cartItems={state.cartItems}
-          removeItem={removeItem}
-        />
+        <div>
+          <SideBarMiddle
+            cartItems={state.cartItems}
+            removeItem={removeItem}
+            handleProceed={handleProceed}
+          />
+          <CheckOutForm proceed={state.proceed} />
+        </div>
       </div>
     </div>
   );

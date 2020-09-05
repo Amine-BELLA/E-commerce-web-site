@@ -1,0 +1,20 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.checkout-form {
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.checkout-form input {
+    width: 100%;
+}
+
+.checkout-form button {
+    width: 100%;
+    background-color: #f9d56e;
+    margin-top: 1rem;
+}
