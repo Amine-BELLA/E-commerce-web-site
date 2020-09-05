@@ -5,6 +5,8 @@ import Product from './components/Product/Product';
 import NavBar from './components/NavBar/NavBar';
 import Filter from './components/Filter/Filter';
 import SideBar from './components/SideBarTop/SideBarTop';
+import SideBarTop from './components/SideBarTop/SideBarTop';
+import SideBarMiddle from './components/SideBarMiddle/SideBarMiddle';
 
 
 function App() {
@@ -103,10 +105,22 @@ function App() {
     });
   }
 
+  function removeItem(item) {
+    var cart = state.cartItems.slice();
+    setState(previousState => {
+      return (
+        {
+          ...previousState,
+          cartItems: cart.filter(element => element.id !== item.id)
+        }
+      );
+    });
+  }
+
   return (
     <div >
       <NavBar />
-      <div className='content'>
+      <div className='content-top'>
         <Filter
           count={state.products.length}
           handleSort={handleSort}
@@ -114,13 +128,17 @@ function App() {
           sizeFilter={state.sizeFilter}
           priceFilter={state.priceFilter}
         />
-        <SideBar cartItems={state.cartItems} />
+        <SideBarTop cartItems={state.cartItems} />
 
       </div>
-      <div>
+      <div className='content-middle'>
         <Product
           products={state.products}
           addToCart={addToCart}
+        />
+        <SideBarMiddle
+          cartItems={state.cartItems}
+          removeItem={removeItem}
         />
       </div>
     </div>

@@ -1,4 +1,9 @@
-.content {
+.content-top {
     display: grid;
     grid-template-columns: 3fr 1fr;
+}
+
+.content-middle {
+    display: grid;
+    grid-template-columns: 70% 30%;
 }

@@ -1,0 +1,34 @@
+.cart-item {
+    width: 80%;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr ;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.cart-item img {
+    width: 90%;
+}
+
+.item-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.proceed {
+    width: 80%;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.proceed button {
+    outline: none;
+    background-color: #f9d56e;
+}
+
+.proceed button:hover {
+    background-color: #f0eeef;
+    color:#222831 ;
+}
