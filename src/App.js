@@ -14,7 +14,7 @@ function App() {
     products: data.products,
     sizeFilter: '',
     priceFilter: '',
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
   });
 
   function handleSort(e) {
@@ -103,18 +103,20 @@ function App() {
         }
       );
     });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
   function removeItem(item) {
-    var cart = state.cartItems.slice();
+    var cartItems = state.cartItems.slice();
     setState(previousState => {
       return (
         {
           ...previousState,
-          cartItems: cart.filter(element => element.id !== item.id)
+          cartItems: cartItems.filter(element => element.id !== item.id)
         }
       );
     });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems.filter(element => element.id !== item.id)));
   }
 
   return (
