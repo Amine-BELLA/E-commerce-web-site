@@ -1,3 +1,15 @@
+h1{
+    color: #fddc71;
+}
+
+h4 {
+    color: grey;
+}
+
+p{
+    color: grey;
+}
+
 .offer {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -12,6 +24,7 @@
 i{
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #fddc71;
 }
 
 .offer-element {
@@ -22,6 +35,9 @@ i{
 
 .offer-container {
     text-align: center;
+    background-image: linear-gradient(to right, white, #e4e3e3);
+    padding-top: 3rem;
+    padding-bottom: 1rem;
     margin-top: 3rem;
 }
 

@@ -11,6 +11,8 @@ import CheckOutForm from './components/CheckOutForm/CheckOutForm';
 import LandingPage from './components/LandingPage/LandingPage';
 import Offer from './components/Offer/Offer';
 
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   const [state, setState] = useState({
@@ -135,37 +137,39 @@ function App() {
   }
 
   return (
-    <div >
-      <NavBar />
-      <LandingPage />
-      <Offer />
-      <div className='content-top'>
-        <Filter
-          count={state.products.length}
-          handleSort={handleSort}
-          handleSize={handleSize}
-          sizeFilter={state.sizeFilter}
-          priceFilter={state.priceFilter}
-        />
-        <SideBarTop cartItems={state.cartItems} />
+    <Provider store={store}>
+      <div >
+        <NavBar />
+        <LandingPage />
+        <div className='content-top'>
+          <Filter
+            count={state.products.length}
+            handleSort={handleSort}
+            handleSize={handleSize}
+            sizeFilter={state.sizeFilter}
+            priceFilter={state.priceFilter}
+          />
+          <SideBarTop cartItems={state.cartItems} />
 
-      </div>
-      <div className='content-middle'>
-        <Product
-          products={state.products}
-          addToCart={addToCart}
-        />
-        <div>
-          <SideBarMiddle
-            cartItems={state.cartItems}
-            removeItem={removeItem}
-            handleProceed={handleProceed}
+        </div>
+        <div className='content-middle'>
+          <Product
+            products={state.products}
             addToCart={addToCart}
           />
-          <CheckOutForm proceed={state.proceed} />
+          <div>
+            <SideBarMiddle
+              cartItems={state.cartItems}
+              removeItem={removeItem}
+              handleProceed={handleProceed}
+              addToCart={addToCart}
+            />
+            <CheckOutForm proceed={state.proceed} />
+          </div>
         </div>
+        <Offer />
       </div>
-    </div>
+    </Provider>
   );
 }
 

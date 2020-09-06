@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Product.css';
 import Fade from 'react-reveal/Fade';
 import Modal from 'react-modal'
 
+import { displayProducts } from '../../actions/actions';
+import { connect } from 'react-redux';
+
 function Product(props) {
+
     const [modal, setModal] = useState(null);
     function openModal(product) {
         setModal(product);
@@ -60,6 +64,12 @@ function Product(props) {
             }
         </div>
     );
+}
+
+function mapStateToProps(state) {
+    return {
+        products: state.products
+    };
 }
 
 export default Product;
