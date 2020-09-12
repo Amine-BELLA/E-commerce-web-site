@@ -88,29 +88,7 @@ function App() {
     }
   }
 
-  function addToCart(product) {
-    const cartItems = state.cartItems.slice();
-    let alreadyExist = false;
-    cartItems.forEach(item => {
-      if (item.id === product.id) {
-        item.count += 1;
-        alreadyExist = true;
-      }
-    })
-    if (!alreadyExist) {
-      cartItems.push({ count: 1, ...product });
-    }
-    console.log(cartItems);
-    setState(previousState => {
-      return (
-        {
-          ...previousState,
-          cartItems: cartItems
-        }
-      );
-    });
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }
+
 
   function removeItem(item) {
     var cartItems = state.cartItems.slice();
@@ -149,20 +127,16 @@ function App() {
             sizeFilter={state.sizeFilter}
             priceFilter={state.priceFilter}
           />
-          <SideBarTop cartItems={state.cartItems} />
+          <SideBarTop cartItems={store.getState().cartItems} />
 
         </div>
         <div className='content-middle'>
           <Product
-            products={state.products}
-            addToCart={addToCart}
           />
           <div>
             <SideBarMiddle
-              cartItems={state.cartItems}
               removeItem={removeItem}
               handleProceed={handleProceed}
-              addToCart={addToCart}
             />
             <CheckOutForm proceed={state.proceed} />
           </div>

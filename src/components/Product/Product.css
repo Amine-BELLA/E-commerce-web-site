@@ -1,11 +1,11 @@
 
-.product a {
-    color: #41444b;
+#link {
+    color: #3568dd;
     text-decoration: none;
     outline: none;
 }
 
-.product a:hover {
+#link :hover {
     color: blueviolet;
     text-decoration: none;
     outline: none;
@@ -35,7 +35,7 @@
 
 .product-info p {
     font-family: 'Montserrat';
-    font-size: 0.9rem ;
+    font-size: 0.8rem ;
 }
 
 .product-purchase {

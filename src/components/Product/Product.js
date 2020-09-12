@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './Product.css';
 import Fade from 'react-reveal/Fade';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 
-import { displayProducts } from '../../actions/actions';
 import { connect } from 'react-redux';
+import { displayProducts, addToCart } from '../../actions/actions';
 
 function Product(props) {
+
+    useEffect(() => props.display(), []);
 
     const [modal, setModal] = useState(null);
     function openModal(product) {
@@ -26,7 +28,7 @@ function Product(props) {
                             <Fade>
                                 <div key={product.id} className='product'>
                                     <div className='product-info'>
-                                        <a href={'#' + product.id} onClick={() => openModal(product)}>
+                                        <a id='link' href={'#' + product.id} onClick={() => openModal(product)}>
                                             <img src={product.image} />
                                             <p>{product.title}</p>
                                         </a>
@@ -41,7 +43,7 @@ function Product(props) {
                     })
                 }
             </div>
-            {
+            {/* {
                 modal &&
                 <Modal
                     isOpen={true}
@@ -61,7 +63,7 @@ function Product(props) {
                     </div>
 
                 </Modal>
-            }
+            } */}
         </div>
     );
 }
@@ -69,7 +71,14 @@ function Product(props) {
 function mapStateToProps(state) {
     return {
         products: state.products
-    };
+    }
 }
 
-export default Product;
+function mapDispatchToProps(dispatch) {
+    return {
+        display: () => dispatch(displayProducts()),
+        addToCart: (product) => dispatch(addToCart(product))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

@@ -1,1 +1,2 @@
 export const DISPLAY_PRODUCTS = 'DISPLAY_PRODUCTS';
+export const ADD_TO_CART = 'ADD_TO_CART';

@@ -1,8 +1,14 @@
-import { DISPLAY_PRODUCTS } from './types';
+import { DISPLAY_PRODUCTS, ADD_TO_CART } from './types';
 
-export function displayProducts(items) {
-    return ({
+export function displayProducts() {
+    return {
         type: DISPLAY_PRODUCTS,
-        payload: items
-    });
+    }
+}
+
+export function addToCart(product) {
+    return {
+        type: ADD_TO_CART,
+        payload: product
+    }
 }
